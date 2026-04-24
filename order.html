@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <!-- Basic metadata for the Order and Delivery page -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete your Blossom Bloom order with secure online checkout, delivery details, personalised messages, and PayFast or Yoco payment.">
+    <meta name="author" content="Sphiwe T Zwane (ST10534768)">
+
+    <title>Order &amp; Delivery | Blossom Bloom</title>
+</head>
+
+<body>
+
+    <!-- Site header with brand name and main navigation -->
+    <header>
+        <div class="brand">
+            <a href="index.html">Blossom Bloom</a>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="promotions.html">Promotions</a></li>
+                <li><a href="order.html" aria-current="page">Order &amp; Delivery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page intro -->
+        <section class="page-intro" aria-label="Order and delivery introduction">
+            <h1>Order &amp; Delivery</h1>
+            <p>Review your cart, choose your delivery details, and complete your order in just a few clicks.</p>
+        </section>
+
+        <!-- Cart summary of selected items -->
+        <section class="cart-summary" aria-label="Cart summary">
+            <h2>Your cart</h2>
+
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pastel Pink Romance</td>
+                        <td>Medium</td>
+                        <td>1</td>
+                        <td>R450.00</td>
+                    </tr>
+                    <tr>
+                        <td>Handwritten Card</td>
+                        <td>-</td>
+                        <td>1</td>
+                        <td>R35.00</td>
+                    </tr>
+                    <tr>
+                        <td>Assorted Chocolates</td>
+                        <td>-</td>
+                        <td>1</td>
+                        <td>R120.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3" scope="row">Subtotal</th>
+                        <td>R605.00</td>
+                    </tr>
+                    <tr>
+                        <th colspan="3" scope="row">Delivery (Dainfern)</th>
+                        <td>R75.00</td>
+                    </tr>
+                    <tr>
+                        <th colspan="3" scope="row">Total</th>
+                        <td><strong>R680.00</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <p class="cart-note">Cart totals shown are a sample. Live cart functionality will be added in Part 3.</p>
+        </section>
+
+        <!-- Delivery and payment form -->
+        <section class="checkout" aria-label="Checkout form">
+            <h2>Delivery details</h2>
+
+            <form class="checkout-form" action="#" method="post">
+
+                <!-- Recipient and delivery address -->
+                <fieldset>
+                    <legend>Recipient and address</legend>
+
+                    <div class="form-row">
+                        <label for="recipient-name">Recipient's full name</label>
+                        <input type="text" id="recipient-name" name="recipient-name" placeholder="e.g. Thandi Nkosi" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="recipient-phone">Recipient's contact number</label>
+                        <input type="tel" id="recipient-phone" name="recipient-phone" placeholder="+27 00 000 0000" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="delivery-address">Delivery address</label>
+                        <textarea id="delivery-address" name="delivery-address" rows="3" placeholder="Street, estate, and unit number" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="delivery-area">Delivery area</label>
+                        <select id="delivery-area" name="delivery-area" required>
+                            <option value="">Select an area</option>
+                            <option value="dainfern">Dainfern</option>
+                            <option value="fourways">Fourways</option>
+                            <option value="lonehill">Lonehill</option>
+                            <option value="midrand">Midrand</option>
+                            <option value="other">Other (we will confirm availability)</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+                <!-- Delivery date and time -->
+                <fieldset>
+                    <legend>Delivery date and time</legend>
+
+                    <div class="form-row">
+                        <label for="delivery-date">Delivery date</label>
+                        <input type="date" id="delivery-date" name="delivery-date" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="delivery-slot">Delivery time slot</label>
+                        <select id="delivery-slot" name="delivery-slot" required>
+                            <option value="">Select a time slot</option>
+                            <option value="morning">Morning (09:00 - 12:00)</option>
+                            <option value="afternoon">Afternoon (12:00 - 15:00)</option>
+                            <option value="late">Late afternoon (15:00 - 18:00)</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+                <!-- Personalised message for gifting -->
+                <fieldset>
+                    <legend>Personalised message</legend>
+
+                    <div class="form-row">
+                        <label for="gift-message">Your message (optional)</label>
+                        <textarea id="gift-message" name="gift-message" rows="4" placeholder="e.g. Happy birthday, Mom. With love from Thandi."></textarea>
+                    </div>
+
+                </fieldset>
+
+                <!-- Payment details -->
+                <fieldset>
+                    <legend>Payment method</legend>
+
+                    <div class="form-row">
+                        <input type="radio" id="pay-payfast" name="payment" value="payfast" checked>
+                        <label for="pay-payfast">Debit or credit card via PayFast</label>
+                    </div>
+
+                    <div class="form-row">
+                        <input type="radio" id="pay-yoco" name="payment" value="yoco">
+                        <label for="pay-yoco">Debit or credit card via Yoco</label>
+                    </div>
+
+                    <p class="secure-note">All payments are processed securely by the selected payment provider.</p>
+                </fieldset>
+
+                <!-- Terms and submit -->
+                <fieldset>
+                    <div class="form-row checkbox-row">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the Blossom Bloom terms, refund policy, and delivery conditions.</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Place Order</button>
+                </fieldset>
+
+            </form>
+        </section>
+
+        <!-- Delivery and confirmation information -->
+        <section class="delivery-info" aria-label="Delivery information">
+            <h2>How delivery works</h2>
+            <ol>
+                <li>Place your order online using the form above.</li>
+                <li>You will receive an email and WhatsApp confirmation with your order number.</li>
+                <li>Your bouquet is hand-prepared on the morning of delivery.</li>
+                <li>Our driver delivers to the recipient within the chosen time slot.</li>
+                <li>We follow up with a delivery confirmation message once the flowers have arrived.</li>
+            </ol>
+
+            <p>Same-day delivery is available for orders placed before 10:00 in Dainfern and surrounding areas.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer with social links and copyright -->
+    <footer>
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <ul>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Blossom Bloom. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

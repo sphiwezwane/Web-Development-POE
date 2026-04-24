@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <!-- Basic metadata for the Promotions page -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="See current deals, seasonal promotions, and exclusive offers from Blossom Bloom, including Mother's Day, Valentine's Day, and Spring Day specials.">
+    <meta name="author" content="Sphiwe T Zwane (ST10534768)">
+
+    <title>Promotions | Blossom Bloom</title>
+</head>
+
+<body>
+
+    <!-- Site header with brand name and main navigation -->
+    <header>
+        <div class="brand">
+            <a href="index.html">Blossom Bloom</a>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="promotions.html" aria-current="page">Promotions</a></li>
+                <li><a href="order.html">Order &amp; Delivery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page intro -->
+        <section class="page-intro" aria-label="Promotions introduction">
+            <h1>Promotions &amp; Seasonal Specials</h1>
+            <p>Fresh deals throughout the year, from Mother's Day classics to Valentine's Day favourites.</p>
+        </section>
+
+        <!-- Featured promotion banner -->
+        <section class="featured-promotion" aria-label="Featured promotion">
+            <div class="promotion-image">
+                <img src="images/bouquet-peony-blush.png" alt="Dome of blush to magenta peonies in a clear glass vase with white ribbon tails, Mother's Day featured bouquet">
+            </div>
+            <div class="promotion-text">
+                <h2>Featured: Mother's Day Blooms</h2>
+                <p class="highlight">Save 15% on all Mother's Day bouquets this May.</p>
+                <p>
+                    Say "thank you" to the special mother figures in your life with our limited-edition bouquet.
+                    Layered pink peonies from soft blush to deep magenta, presented in a clear glass vase, with a
+                    personalised card included at no extra cost.
+                </p>
+                <a href="order.html" class="btn-primary">Order Now</a>
+            </div>
+        </section>
+
+        <!-- Current seasonal promotions -->
+        <section class="current-promotions" aria-label="Current promotions">
+            <h2>Current promotions</h2>
+            <div class="promotion-grid">
+
+                <article class="promotion-card">
+                    <img src="images/occasion-anniversary.png" alt="Deep red roses with a red envelope and heart accent, romantic Valentine's style">
+                    <h3>Valentine's Day Classics</h3>
+                    <p>Save 10% on our signature red rose bouquets from 10 to 14 February.</p>
+                    <p class="promo-code">Use code: <strong>LOVE10</strong></p>
+                    <a href="shop.html#occasions">Shop Valentine's</a>
+                </article>
+
+                <article class="promotion-card">
+                    <img src="images/bouquet-sunshine.png" alt="Bright sunflower bouquet with pink alstroemeria and daisies wrapped in orange paper">
+                    <h3>Spring Day Special</h3>
+                    <p>Celebrate 1 September with R50 off all Spring bouquets.</p>
+                    <p class="promo-code">Use code: <strong>SPRING50</strong></p>
+                    <a href="shop.html#bouquets">Shop Spring</a>
+                </article>
+
+                <article class="promotion-card">
+                    <img src="images/occasion-birthday.png" alt="Colourful birthday arrangement in a Le Jardin planter with a red heart accent">
+                    <h3>Birthday Bundle</h3>
+                    <p>Get a free handwritten card and chocolates when you order any birthday bouquet.</p>
+                    <p class="promo-code">Use code: <strong>BDAY</strong></p>
+                    <a href="shop.html#occasions">Shop Birthdays</a>
+                </article>
+
+                <article class="promotion-card">
+                    <img src="images/promotion-loyalty.jpg" alt="A stack of Blossom Bloom loyalty cards">
+                    <h3>Loyalty Programme</h3>
+                    <p>Order five bouquets, get your sixth at half price. Automatically applied at checkout.</p>
+                    <p class="promo-code">No code needed</p>
+                    <a href="order.html">Start saving</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Sign-up section for WhatsApp and email deals -->
+        <section class="signup" aria-label="Sign up for exclusive deals">
+            <h2>Get exclusive deals first</h2>
+            <p>Sign up for our WhatsApp and email list to receive seasonal specials, early access, and subscriber-only offers.</p>
+
+            <!-- Sign-up form, to be wired up in Part 3 -->
+            <form class="signup-form" action="#" method="post">
+
+                <div class="form-row">
+                    <label for="signup-name">Your name</label>
+                    <input type="text" id="signup-name" name="signup-name" placeholder="e.g. Thandi Nkosi" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="signup-email">Email address</label>
+                    <input type="email" id="signup-email" name="signup-email" placeholder="you@example.co.za" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="signup-whatsapp">WhatsApp number</label>
+                    <input type="tel" id="signup-whatsapp" name="signup-whatsapp" placeholder="+27 00 000 0000">
+                </div>
+
+                <div class="form-row checkbox-row">
+                    <input type="checkbox" id="signup-consent" name="signup-consent" required>
+                    <label for="signup-consent">I agree to receive marketing messages from Blossom Bloom.</label>
+                </div>
+
+                <button type="submit" class="btn-primary">Sign Me Up</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer with social links and copyright -->
+    <footer>
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <ul>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Blossom Bloom. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <!-- Basic metadata for the Contact page -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Blossom Bloom for enquiries, custom orders, and wedding quotes. Near Dainfern Square, Fourways, Sandton.">
+    <meta name="author" content="Sphiwe T Zwane (ST10534768)">
+
+    <title>Contact | Blossom Bloom</title>
+</head>
+
+<body>
+
+    <!-- Site header with brand name and main navigation -->
+    <header>
+        <div class="brand">
+            <a href="index.html">Blossom Bloom</a>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="promotions.html">Promotions</a></li>
+                <li><a href="order.html">Order &amp; Delivery</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page intro -->
+        <section class="page-intro" aria-label="Contact introduction">
+            <h1>Contact Us</h1>
+            <p>Use the details below, send a message, or find us on the map.</p>
+        </section>
+
+        <!-- Contact details -->
+        <section class="contact-details" aria-label="Contact details">
+            <h2>Our details</h2>
+
+            <div class="contact-grid">
+
+                <article class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:hello@blossombloom.co.za">hello@blossombloom.co.za</a></p>
+                    <p>For general enquiries and custom orders.</p>
+                </article>
+
+                <article class="contact-item">
+                    <h3>Phone and WhatsApp</h3>
+                    <p>Phone: <a href="tel:+27736249185">+27 73 624 9185</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/27736249185">+27 73 624 9185</a></p>
+                    <p>Monday to Saturday during business hours.</p>
+                </article>
+
+                <article class="contact-item">
+                    <h3>Location</h3>
+                    <p>Dainfern Square, cnr William Nicol Drive &amp; Broadacres Drive, Fourways, Sandton, 2191</p>
+                    <p>We deliver in and around Dainfern and Fourways.</p>
+                </article>
+
+                <article class="contact-item">
+                    <h3>Operating hours</h3>
+                    <ul>
+                        <li>Monday to Friday: 08:00 - 18:00</li>
+                        <li>Saturday: 09:00 - 15:00</li>
+                        <li>Sunday: Closed (deliveries by prior arrangement)</li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Contact form for general enquiries and custom orders -->
+        <section class="contact-form-section" aria-label="Contact form">
+            <h2>Send us a message</h2>
+
+            <form class="contact-form" action="#" method="post">
+
+                <div class="form-row">
+                    <label for="contact-name">Full name</label>
+                    <input type="text" id="contact-name" name="contact-name" placeholder="e.g. Lerato Moloi" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-email">Email address</label>
+                    <input type="email" id="contact-email" name="contact-email" placeholder="you@example.co.za" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-phone">Contact number</label>
+                    <input type="tel" id="contact-phone" name="contact-phone" placeholder="+27 73 624 9185">
+                </div>
+
+                <div class="form-row">
+                    <label for="enquiry-type">Type of enquiry</label>
+                    <select id="enquiry-type" name="enquiry-type" required>
+                        <option value="">Select an option</option>
+                        <option value="general">General enquiry</option>
+                        <option value="custom">Custom order</option>
+                        <option value="wedding">Wedding quote</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-message">Your message</label>
+                    <textarea id="contact-message" name="contact-message" rows="5" placeholder="Tell us a little about what you are looking for" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Send Message</button>
+
+            </form>
+        </section>
+
+        <!-- Map with links to Google Maps and Apple Maps (address listed under Our details) -->
+        <section class="map-section" aria-label="Shop location map">
+            <h2>Map</h2>
+            <p>Open the same location in your preferred maps app, or use the embedded map.</p>
+            <ul class="map-external-links">
+                <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Dainfern%20Square%2C%20cnr%20William%20Nicol%20Drive%20%26%20Broadacres%20Dr%2C%20Fourways%2C%20Sandton%2C%202191" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></li>
+                <li><a href="https://maps.apple.com/?address=Dainfern%20Square%2C%20cnr%20William%20Nicol%20Drive%20and%20Broadacres%20Drive%2C%20Fourways%2C%20Sandton%2C%202191%2C%20South%20Africa" target="_blank" rel="noopener noreferrer">Open in Apple Maps</a></li>
+            </ul>
+
+            <div class="map-embed">
+                <iframe
+                    src="https://www.google.com/maps?q=Dainfern%20Square%2C%20William%20Nicol%20Drive%20%26%20Broadacres%20Drive%2C%20Fourways%2C%20Sandton%202191%2C%20South%20Africa&amp;output=embed"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Map showing Dainfern Square, Fourways, Sandton">
+                </iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer with social links and copyright -->
+    <footer>
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <ul>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Blossom Bloom. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
