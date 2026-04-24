@@ -50,26 +50,48 @@
                         <th scope="col">Size</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Pastel Pink Romance</td>
                         <td>Medium</td>
-                        <td>1</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+                                <input type="number" class="qty-input" value="1" min="1" max="10" aria-label="Quantity">
+                                <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+                            </div>
+                        </td>
                         <td>R450.00</td>
+                        <td><button type="button" class="btn-remove">Remove</button></td>
                     </tr>
                     <tr>
                         <td>Handwritten Card</td>
                         <td>-</td>
-                        <td>1</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+                                <input type="number" class="qty-input" value="1" min="1" max="10" aria-label="Quantity">
+                                <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+                            </div>
+                        </td>
                         <td>R35.00</td>
+                        <td><button type="button" class="btn-remove">Remove</button></td>
                     </tr>
                     <tr>
                         <td>Assorted Chocolates</td>
                         <td>-</td>
-                        <td>1</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+                                <input type="number" class="qty-input" value="1" min="1" max="10" aria-label="Quantity">
+                                <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+                            </div>
+                        </td>
                         <td>R120.00</td>
+                        <td><button type="button" class="btn-remove">Remove</button></td>
                     </tr>
                 </tbody>
                 <tfoot>
