@@ -285,7 +285,7 @@ Samsung S33GF 24" (1920 x 1080)
 
 **Removed**
 
-- **Gold Cage Dome arrangement:** removed the full product card from the Shop page, including its image, name, description, size options, and price.
+- **Gold Cage Dome arrangement:** removed the full product card from the Shop page, including its image, name, description, size options, and price.  
 
 ### Part 2, Version 1.1 (May 2026)
 
