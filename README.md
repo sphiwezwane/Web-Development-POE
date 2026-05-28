@@ -275,7 +275,7 @@ Samsung S33GF 24" (1920 x 1080)
 - **Hero image:** the homepage hero now uses a `5 / 4` aspect ratio with `object-position: right center` so the full bouquet is in frame instead of being cropped to the empty side of the photo. On mobile it uses a `16 / 9` frame.
 - **Shop product images:** switched from a `4 / 3` crop to a `1 / 1` square so less of each photo is cut off while still filling the card with no side gaps.
 - **Promotion card images:** switched from a fixed pixel height to a `4 / 3` aspect ratio so the promo photos show more of the arrangement and stay uniform across cards.
-- **Section backgrounds:** the Meet Mbali Sithole, Our Vision, Our Mission, Ready to Send Some Joy, Featured Mother's Day Blooms, and Connect With Us blocks now use a single solid Blossom Pink background instead of gradients and pastel tints, matching the sign-up section.
+- **Section backgrounds:** the Meet Mbali Sithole, Our Vision, Our Mission, Ready to Send Some Joy, Featured Mother's Day Blooms, and Connect With Us blocks now use a single solid Blossom Pink background instead of gradients and pastel tints, matching the sign-up section. 
 - **Vision and Mission cards:** removed the coloured top accent border and drop shadow for a flatter, cleaner look.
 - **Contact detail cards:** removed the heavy left accent border and drop shadow, leaving a light bordered card.
 - **Responsiveness across mobile, tablet, and desktop:** reviewed and tuned the layout at each breakpoint after testing on real device sizes.
