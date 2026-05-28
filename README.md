@@ -264,7 +264,7 @@ Samsung S33GF 24" (1920 x 1080)
 
 **Visual refinements and layout updates** building on the v1.1 styling pass, based on review of the live pages.
 
-**Added**
+**Added** 
 
 - **Announcement bar:** a slim full-width bar above the navigation on every page, showing the same-day delivery cut-off and the shop phone number.
 - **Expanded footer:** the simple social footer is now a four column footer with a brand blurb, a Help links column, a Quick Links column, and a Connect column with phone, email, and social links, plus a centred bottom bar with delivery note and copyright. The footer collapses to two columns on tablet and a single centred column on mobile.
