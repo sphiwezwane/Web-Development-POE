@@ -1,6 +1,6 @@
 # Blossom Bloom Website
 
-A web development project for the WEDE5020W module, building the first online home for **Blossom Bloom**, a Dainfern-based flower shop.
+A web development project for the WEDE5020W module, building the first online home for Blossom Bloom, a Dainfern-based flower shop.
 
 ---
 
