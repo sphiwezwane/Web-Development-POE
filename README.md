@@ -162,6 +162,16 @@ Part 1 includes:
 - Properly indented, readable HTML.
 - Placeholders for CSS (Part 2) and JavaScript (Part 3) folders.
 
+Part 2 includes:
+
+- A single external stylesheet (`css/style.css`) linked to all six pages, with a CSS reset and no inline or internal styles.
+- The Blossom Bloom colour palette and Google Fonts typography (Playfair Display for headings, Poppins for body), applied through a clear heading hierarchy from `<h1>` down to button text.
+- Page layouts built with CSS Grid and Flexbox to match the wireframes, including the sticky navigation, two-column hero, product and category grids, and the side-by-side order and contact layouts.
+- Visual styling with colour, backgrounds, borders, box shadows, and `:hover`, `:focus`, and `:active` states on all interactive elements, with Deep Rose call-to-action buttons.
+- Responsive design with desktop, tablet, and mobile breakpoints using relative units, where every multi-column layout collapses to a single column on smaller screens.
+- Responsive testing across iPhone, iPad, and desktop screen sizes, with screenshot evidence included in this README.
+- Updated comments in the stylesheet and an expanded changelog and references list.
+
 ---
 
 ## Sitemap
