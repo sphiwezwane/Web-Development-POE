@@ -26,13 +26,6 @@ $(document).ready(function () {
         $('#cart-toast').text(message).fadeIn(300).delay(3000).fadeOut(300);
     }
 
-    /* Check if we just added an item (redirected from shop) */
-    var justAdded = sessionStorage.getItem('justAddedItem');
-    if (justAdded) {
-        showToast(justAdded + " successfully added to cart");
-        sessionStorage.removeItem('justAddedItem');
-    }
-
     /* 3. Add to Cart Logic (shop.html) */
     $('.product-card .btn-primary').on('click', function(e) {
         e.preventDefault();
@@ -74,8 +67,7 @@ $(document).ready(function () {
         }
         
         saveCart();
-        sessionStorage.setItem('justAddedItem', name);
-        window.location.href = 'order.html';
+        showToast(name + " successfully added to cart");
     }
 
     /* 5. Render Cart dynamically (order.html) */
