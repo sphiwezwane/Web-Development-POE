@@ -26,6 +26,46 @@ $(document).ready(function () {
         $('#cart-toast').text(message).fadeIn(300).delay(3000).fadeOut(300);
     }
 
+    /* Dynamic Size Selector Logic for Shop Page */
+    if ($('.product-card').length) {
+        $('.product-card').each(function() {
+            var $sizeP = $(this).find('p.size');
+            if ($sizeP.length) {
+                var text = $sizeP.text();
+                if (text.includes('Size options:')) {
+                    var options = text.replace('Size options:', '').split(',').map(function(s) { return s.trim(); });
+                    var $select = $('<select class="size-select" style="margin: 0 auto 0.75rem; display:block; padding:0.3rem 0.5rem; border:1px solid var(--line); border-radius:4px; font-family:inherit; color:var(--muted); font-size: 0.9rem;"></select>');
+                    
+                    var $priceEl = $(this).find('.price');
+                    var basePriceStr = $priceEl.text().trim();
+                    var basePrice = parsePrice(basePriceStr);
+                    
+                    options.forEach(function(opt) {
+                        var multiplier = 1;
+                        var optLower = opt.toLowerCase();
+                        if (optLower === 'medium') multiplier = 1.3;
+                        if (optLower === 'large') multiplier = 1.6;
+                        if (optLower === 'grand') multiplier = 1.5;
+                        
+                        var price = Math.round(basePrice * multiplier);
+                        $select.append($('<option>', {
+                            value: opt,
+                            text: opt,
+                            'data-price': price
+                        }));
+                    });
+                    
+                    $sizeP.replaceWith($select);
+                    
+                    $select.on('change', function() {
+                        var newPrice = $(this).find('option:selected').data('price');
+                        $(this).closest('.product-card').find('.price').text('R' + newPrice.toFixed(2));
+                    });
+                }
+            }
+        });
+    }
+
     /* 3. Add to Cart Logic (shop.html) */
     $('.product-card .add-to-cart-btn').on('click', function(e) {
         e.preventDefault();
@@ -35,6 +75,7 @@ $(document).ready(function () {
         var price = parsePrice(priceStr);
         var image = $card.find('img').attr('src');
         var qty = parseInt($card.find('.product-qty-input').val(), 10) || 1;
+        var size = $card.find('.size-select').length ? $card.find('.size-select').val() : '-';
         var isCard = (name.toLowerCase() === 'handwritten card');
 
         if (isCard) {
@@ -63,7 +104,7 @@ $(document).ready(function () {
                         alert('Message is too long. Please keep it under 600 characters.');
                         return;
                     }
-                    addToCart(window.currentCardName, window.currentCardPrice, msg, window.currentCardImage, window.currentCardQty);
+                    addToCart(window.currentCardName, window.currentCardPrice, msg, window.currentCardImage, window.currentCardQty, '-');
                     $('#card-modal').hide();
                     $('#card-msg-input').val('');
                 });
@@ -79,14 +120,14 @@ $(document).ready(function () {
             $('#card-msg-input').focus();
             
         } else {
-            addToCart(name, price, '', image, qty);
+            addToCart(name, price, '', image, qty, size);
         }
     });
 
-    function addToCart(name, price, message, image, addQty) {
+    function addToCart(name, price, message, image, addQty, size) {
         /* Check if already in cart */
         var existing = cart.find(function(item) {
-            return item.name === name && item.message === message;
+            return item.name === name && item.message === message && item.size === size;
         });
 
         if (existing) {
@@ -100,12 +141,14 @@ $(document).ready(function () {
                 price: price,
                 qty: addQty,
                 message: message,
-                image: image || 'images/addon-card.png'
+                image: image || 'images/addon-card.png',
+                size: size || '-'
             });
         }
         
         saveCart();
-        showToast(addQty + "x " + name + " successfully added to cart");
+        var sizeText = (size !== '-') ? ' (' + size + ')' : '';
+        showToast(addQty + "x " + name + sizeText + " successfully added to cart");
     }
 
     /* 5. Render Cart dynamically (order.html) */
@@ -118,9 +161,7 @@ $(document).ready(function () {
 
         if (cart.length === 0) {
             $tbody.append('<tr><td colspan="4" style="text-align:center; padding:2rem;">Your cart is empty. <a href="shop.html">Go to shop</a></td></tr>');
-            $('.cart-table tfoot tr:nth-child(1) td').text('R0.00');
-            $('.cart-table tfoot tr:nth-child(2) td').text('R0.00');
-            $('.cart-table tfoot tr:nth-child(3) td').html('<strong>R0.00</strong>');
+            $('.cart-table tfoot').html('<tr><th colspan="3" scope="row">Subtotal</th><td>R0.00</td></tr><tr><th colspan="3" scope="row">Delivery</th><td>R0.00</td></tr><tr><th colspan="3" scope="row">Total</th><td><strong>R0.00</strong></td></tr>');
             return;
         }
 
@@ -132,10 +173,11 @@ $(document).ready(function () {
             var fallbackImage = 'images/addon-card.png'; /* Generic fallback for old carts */
             var displayImage = item.image || fallbackImage;
             var imgHtml = '<img src="' + displayImage + '" alt="' + item.name + '" style="width:50px; height:50px; object-fit:cover; border-radius:4px; vertical-align:middle; margin-right:10px;">';
+            var itemSize = item.size || '-';
             
             var tr = '<tr>' +
                 '<td>' + imgHtml + item.name + msgHtml + '</td>' +
-                '<td>-</td>' + /* Size column left blank for now */
+                '<td>' + itemSize + '</td>' +
                 '<td>' +
                     '<button type="button" class="qty-btn minus" data-index="' + index + '">-</button>' +
                     '<span style="margin:0 10px;">' + item.qty + '</span>' +
