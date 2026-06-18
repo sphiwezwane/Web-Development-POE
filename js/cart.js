@@ -36,14 +36,44 @@ $(document).ready(function () {
         var isCard = (name.toLowerCase() === 'handwritten card');
 
         if (isCard) {
-            /* 4. Handwritten Card Modal */
-            var msg = prompt('Enter your custom message for the Handwritten Card (max 600 characters):');
-            if (msg === null) return; /* User cancelled */
-            if (msg.length > 600) {
-                alert('Message is too long. Please keep it under 600 characters.');
-                return;
+            /* 4. Custom Handwritten Card Modal */
+            if (!$('#card-modal').length) {
+                var modalHtml = '<div id="card-modal" class="card-modal-overlay" style="display:flex;">' +
+                    '<div class="card-modal">' +
+                        '<h3>Handwritten Card Message</h3>' +
+                        '<p>Enter your custom message (max 600 characters):</p>' +
+                        '<textarea id="card-msg-input" maxlength="600" placeholder="Write your message here..."></textarea>' +
+                        '<div class="card-modal-actions">' +
+                            '<button type="button" class="btn-secondary" id="card-cancel-btn">Cancel</button>' +
+                            '<button type="button" class="btn-primary" id="card-save-btn">Save to Cart</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+                $('body').append(modalHtml);
+                
+                $('#card-cancel-btn').on('click', function() {
+                    $('#card-modal').hide();
+                });
+                
+                $('#card-save-btn').on('click', function() {
+                    var msg = $('#card-msg-input').val().trim();
+                    if (msg.length > 600) {
+                        alert('Message is too long. Please keep it under 600 characters.');
+                        return;
+                    }
+                    addToCart(window.currentCardName, window.currentCardPrice, msg);
+                    $('#card-modal').hide();
+                    $('#card-msg-input').val('');
+                });
+            } else {
+                $('#card-modal').show().css('display', 'flex');
             }
-            addToCart(name, price, msg);
+            
+            /* Store current card info globally for the modal */
+            window.currentCardName = name;
+            window.currentCardPrice = price;
+            $('#card-msg-input').focus();
+            
         } else {
             addToCart(name, price, '');
         }
