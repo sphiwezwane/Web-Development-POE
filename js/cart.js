@@ -27,12 +27,14 @@ $(document).ready(function () {
     }
 
     /* 3. Add to Cart Logic (shop.html) */
-    $('.product-card .btn-primary').on('click', function(e) {
+    $('.product-card .add-to-cart-btn').on('click', function(e) {
         e.preventDefault();
         var $card = $(this).closest('.product-card');
         var name = $card.find('h3').text().trim();
         var priceStr = $card.find('.price').text().trim();
         var price = parsePrice(priceStr);
+        var image = $card.find('img').attr('src');
+        var qty = parseInt($card.find('.product-qty-input').val(), 10) || 1;
         var isCard = (name.toLowerCase() === 'handwritten card');
 
         if (isCard) {
@@ -61,7 +63,7 @@ $(document).ready(function () {
                         alert('Message is too long. Please keep it under 600 characters.');
                         return;
                     }
-                    addToCart(window.currentCardName, window.currentCardPrice, msg);
+                    addToCart(window.currentCardName, window.currentCardPrice, msg, window.currentCardImage, window.currentCardQty);
                     $('#card-modal').hide();
                     $('#card-msg-input').val('');
                 });
@@ -72,32 +74,35 @@ $(document).ready(function () {
             /* Store current card info globally for the modal */
             window.currentCardName = name;
             window.currentCardPrice = price;
+            window.currentCardImage = image;
+            window.currentCardQty = qty;
             $('#card-msg-input').focus();
             
         } else {
-            addToCart(name, price, '');
+            addToCart(name, price, '', image, qty);
         }
     });
 
-    function addToCart(name, price, message) {
+    function addToCart(name, price, message, image, addQty) {
         /* Check if already in cart */
         var existing = cart.find(function(item) {
             return item.name === name && item.message === message;
         });
 
         if (existing) {
-            existing.qty += 1;
+            existing.qty += addQty;
         } else {
             cart.push({
                 name: name,
                 price: price,
-                qty: 1,
-                message: message
+                qty: addQty,
+                message: message,
+                image: image || 'images/addon-card.png'
             });
         }
         
         saveCart();
-        showToast(name + " successfully added to cart");
+        showToast(addQty + "x " + name + " successfully added to cart");
     }
 
     /* 5. Render Cart dynamically (order.html) */
@@ -121,9 +126,10 @@ $(document).ready(function () {
             subtotal += itemTotal;
             
             var msgHtml = item.message ? '<br><small><i>Msg: ' + item.message + '</i></small>' : '';
+            var imgHtml = item.image ? '<img src="' + item.image + '" alt="' + item.name + '" style="width:50px; height:50px; object-fit:cover; border-radius:4px; vertical-align:middle; margin-right:10px;">' : '';
             
             var tr = '<tr>' +
-                '<td>' + item.name + msgHtml + '</td>' +
+                '<td>' + imgHtml + item.name + msgHtml + '</td>' +
                 '<td>-</td>' + /* Size column left blank for now */
                 '<td>' +
                     '<button type="button" class="qty-btn minus" data-index="' + index + '">-</button>' +
