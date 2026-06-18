@@ -91,6 +91,9 @@ $(document).ready(function () {
 
         if (existing) {
             existing.qty += addQty;
+            if (!existing.image && image) {
+                existing.image = image;
+            }
         } else {
             cart.push({
                 name: name,
@@ -126,7 +129,9 @@ $(document).ready(function () {
             subtotal += itemTotal;
             
             var msgHtml = item.message ? '<br><small><i>Msg: ' + item.message + '</i></small>' : '';
-            var imgHtml = item.image ? '<img src="' + item.image + '" alt="' + item.name + '" style="width:50px; height:50px; object-fit:cover; border-radius:4px; vertical-align:middle; margin-right:10px;">' : '';
+            var fallbackImage = 'images/addon-card.png'; /* Generic fallback for old carts */
+            var displayImage = item.image || fallbackImage;
+            var imgHtml = '<img src="' + displayImage + '" alt="' + item.name + '" style="width:50px; height:50px; object-fit:cover; border-radius:4px; vertical-align:middle; margin-right:10px;">';
             
             var tr = '<tr>' +
                 '<td>' + imgHtml + item.name + msgHtml + '</td>' +
