@@ -105,9 +105,45 @@ $(document).ready(function () {
         }
         
         if (isValid) {
-            alert('Thank you, ' + fullName + '! Your order has been placed. We will contact you at ' + phone + ' regarding delivery to ' + address + '.');
-            $('#order-form')[0].reset();
-            $('.input-success').removeClass('input-success');
+            /* AJAX Form Submission to simulate asynchronous processing */
+            var orderData = {
+                name: fullName,
+                phone: phone,
+                address: address,
+                cart: JSON.parse(localStorage.getItem('blossomCart')) || []
+            };
+
+            /* Change button text to show loading state */
+            var $submitBtn = $('#order-form button[type="submit"]');
+            var originalText = $submitBtn.text();
+            $submitBtn.text('Processing Order...').prop('disabled', true);
+
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/posts', /* Mock API endpoint for demonstration */
+                type: 'POST',
+                data: JSON.stringify(orderData),
+                contentType: 'application/json; charset=utf-8',
+                success: function(response) {
+                    /* Simulate server response presentation */
+                    alert('Success! Thank you, ' + fullName + '. Your order has been placed. We will contact you at ' + phone + ' regarding delivery to ' + address + '.');
+                    $('#order-form')[0].reset();
+                    $('.input-success').removeClass('input-success');
+                    
+                    /* Clear the cart after successful order */
+                    localStorage.removeItem('blossomCart');
+                    if(typeof renderCart === "function") {
+                        renderCart(); /* If on same page */
+                    } else {
+                        window.location.reload();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('There was an error processing your order. Please try again later.');
+                },
+                complete: function() {
+                    $submitBtn.text(originalText).prop('disabled', false);
+                }
+            });
         }
     });
 
