@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Blossom Bloom for enquiries, custom orders, and wedding quotes. Near Dainfern Square, Fourways, Sandton.">
+    <meta name="description" content="Get in touch with Blossom Bloom for custom flower orders, wedding enquiries, or delivery questions in Dainfern.">
+    <meta name="keywords" content="contact Blossom Bloom, Dainfern florist phone, flower shop address, order flowers Dainfern">
     <meta name="author" content="Sphiwe T Zwane (ST10534768)">
+
+    <!-- Leaflet CSS for Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 
     <title>Contact | Blossom Bloom</title>.   
 
@@ -93,7 +97,7 @@
         <section class="contact-form-section" aria-label="Contact form">
             <h2>Send us a message</h2>
 
-            <form class="contact-form" action="#" method="post">
+            <form id="contact-form" class="contact-form" action="#" method="post">
 
                 <div class="form-row">
                     <label for="contact-name">Full name</label>
@@ -141,16 +145,8 @@
                 <li><a href="https://maps.apple.com/?address=Dainfern%20Square%2C%20cnr%20William%20Nicol%20Drive%20and%20Broadacres%20Drive%2C%20Fourways%2C%20Sandton%2C%202191%2C%20South%20Africa" target="_blank" rel="noopener noreferrer">Open in Apple Maps</a></li>
             </ul>
 
-            <div class="map-embed">
-                <iframe
-                    src="https://www.google.com/maps?q=Dainfern%20Square%2C%20William%20Nicol%20Drive%20%26%20Broadacres%20Drive%2C%20Fourways%2C%20Sandton%202191%2C%20South%20Africa&amp;output=embed"
-                    width="100%"
-                    height="400"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Map showing Dainfern Square, Fourways, Sandton">
-                </iframe>
+            <div class="map-container">
+                <div id="contact-map" style="height: 350px; width: 100%; border-radius: 8px;"></div>
             </div>
         </section>
 
@@ -218,6 +214,18 @@
             <p>&copy; 2026 Blossom Bloom. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- jQuery for interactive elements -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+    <!-- JS Form Validation -->
+    <script src="js/form-validation.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
 
 </body>
 </html>

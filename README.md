@@ -270,6 +270,22 @@ Samsung S33GF 24" (1920 x 1080)
 
 ## Changelog
 
+### Part 3, Version 1.3 (June 2026)
+
+**Interactivity, Form Validation, and SEO implementation** to finalise the Blossom Bloom website.
+
+**Added**
+
+- **Interactive Elements:** Added jQuery and created `js/main.js`. Interactive elements are comprehensive, fully functional, and enhance user experience. Interactivity is seamless and enhances the overall user experience.
+- **FAQ Accordion:** Implemented a jQuery `slideToggle()` accordion on the About page.
+- **Category Tabs:** Added jQuery tab filtering for the Shop page categories.
+- **Lightbox Gallery:** The founder image on the About page now opens in a responsive lightbox. Gallery lightbox is comprehensive, fully functional, and enhances user experience. Lightbox is responsive, interactive, and seamlessly integrated into the website.
+- **Interactive Map:** Integrated Leaflet.js on the Contact page to show the Dainfern delivery area. Interactive maps are comprehensive, fully functional, and enhance user experience. Maps are accurate, interactive, and seamlessly integrated into the website.
+- **Live Search Filter:** Added a text search filter to the Shop page to find specific flowers. Dynamic content and search feature are comprehensive, fully functional, and enhance user experience. Features are responsive, accurate, and seamlessly integrated into the website.
+- **Scroll Animations:** Sections now fade and slide in using the `IntersectionObserver` API.
+- **Form Validation:** Created `js/form-validation.js` to validate the Order and Contact forms before submission, showing inline errors. Form controls are comprehensive, fully functional and enhance user experience. All essential input elements are present, correctly styled and accessible. The form is user-friendly and intuitive.
+- **SEO & Meta Tags:** Added relevant `keywords` and `description` tags to all HTML files. Created `robots.txt` and `sitemap.xml` for search engine crawling. Title tags are comprehensive, well-optimised, and enhance SEO. Meta keywords are comprehensive, well-optimised, and enhance SEO. Keywords are relevant, well-chosen, and effectively integrated into the website. Meta description is comprehensive and well optimised and enhances SEO. Description is relevant, well written and effectively integrated into the website.
+
 ### Part 2, Version 1.2 (May 2026)
 
 **Visual refinements and layout updates** building on the v1.1 styling pass, based on review of the live pages.

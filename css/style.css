@@ -1441,3 +1441,125 @@ footer {
         font-size: 0.9rem;
     }
 }
+
+/* --- Part 3: JS Interactive Styles --- */
+
+/* Form Validation */
+.input-error {
+    border: 2px solid var(--deep-rose) !important;
+}
+.input-success {
+    border: 2px solid #4CAF50 !important;
+}
+.error-msg {
+    color: var(--deep-rose);
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Lightbox Gallery */
+#lightbox-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+#lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+#lightbox-close {
+    position: absolute;
+    top: -40px; right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Search Container */
+.search-container {
+    margin-top: 1rem;
+}
+#product-search {
+    padding: 0.75rem;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FAQ Accordion */
+.faq-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+.faq-item {
+    border-bottom: 1px solid var(--pastel-lavender);
+    margin-bottom: 1rem;
+}
+.faq-question {
+    cursor: pointer;
+    padding: 1rem 0;
+    margin: 0;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--deep-rose);
+}
+.faq-question.open::after {
+    content: '-';
+}
+.faq-answer {
+    padding-bottom: 1rem;
+    color: #555;
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cart Specific Styles */
+.qty-btn {
+    background: var(--pastel-lavender);
+    border: none;
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--deep-rose);
+    transition: background 0.2s;
+}
+.qty-btn:hover {
+    background: var(--creamy-ivory);
+}
+
+#cart-toast {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
