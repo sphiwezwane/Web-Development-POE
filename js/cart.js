@@ -34,7 +34,9 @@ $(document).ready(function () {
                 var text = $sizeP.text();
                 if (text.includes('Size options:')) {
                     var options = text.replace('Size options:', '').split(',').map(function(s) { return s.trim(); });
-                    var $select = $('<select class="size-select" style="margin: 0 auto 0.75rem; display:block; padding:0.3rem 0.5rem; border:1px solid var(--line); border-radius:4px; font-family:inherit; color:var(--muted); font-size: 0.9rem;"></select>');
+                    
+                    /* Smaller rectangle, centered block */
+                    var $select = $('<select class="size-select" style="margin: 0 auto 0.5rem; display:block; width: 110px; padding:0.2rem; border:1px solid var(--muted); border-radius:4px; font-family:inherit; color:var(--ink); font-size: 0.85rem;"></select>');
                     
                     var $priceEl = $(this).find('.price');
                     var basePriceStr = $priceEl.text().trim();
@@ -56,6 +58,12 @@ $(document).ready(function () {
                     });
                     
                     $sizeP.replaceWith($select);
+                    
+                    /* Tweak price margin so it looks grouped tightly with the select */
+                    $priceEl.css({
+                        'margin-top': '0',
+                        'margin-bottom': '1rem'
+                    });
                     
                     $select.on('change', function() {
                         var newPrice = $(this).find('option:selected').data('price');
