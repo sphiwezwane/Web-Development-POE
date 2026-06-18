@@ -149,13 +149,53 @@ $(document).ready(function () {
             $tbody.append(tr);
         });
 
-        /* Update totals */
+        /* Update totals and handle discounts */
         var delivery = subtotal > 0 ? 75 : 0;
-        var total = subtotal + delivery;
         
-        $('.cart-table tfoot tr:nth-child(1) td').text('R' + subtotal.toFixed(2));
-        $('.cart-table tfoot tr:nth-child(2) td').text('R' + delivery.toFixed(2));
-        $('.cart-table tfoot tr:nth-child(3) td').html('<strong>R' + total.toFixed(2) + '</strong>');
+        var code = (localStorage.getItem('blossomDiscount') || '').toUpperCase();
+        var discountMultiplier = 1;
+        var discountMessage = '';
+        var discountAmount = 0;
+
+        if (code === 'LOVE10') {
+            discountMultiplier = 0.9;
+            discountMessage = 'LOVE10 (-10%)';
+        } else if (code === 'SPRING50') {
+            discountMultiplier = 0.5;
+            discountMessage = 'SPRING50 (-50%)';
+        } else if (code === 'BDAY') {
+            discountMessage = 'BDAY (Free Card Added)';
+        } else if (code) {
+            discountMessage = 'Invalid Code';
+        }
+        
+        if (discountMultiplier < 1) {
+            discountAmount = subtotal * (1 - discountMultiplier);
+        }
+        
+        var total = subtotal - discountAmount + delivery;
+        
+        /* Render table footer dynamically to include discount row if needed */
+        var tfootHtml = '<tr><th colspan="3" scope="row">Subtotal</th><td>R' + subtotal.toFixed(2) + '</td></tr>';
+        
+        if (discountAmount > 0) {
+            tfootHtml += '<tr style="color:var(--deep-rose);"><th colspan="3" scope="row">Discount ' + discountMessage + '</th><td>-R' + discountAmount.toFixed(2) + '</td></tr>';
+        }
+        
+        tfootHtml += '<tr><th colspan="3" scope="row">Delivery (Dainfern)</th><td>R' + delivery.toFixed(2) + '</td></tr>' +
+                     '<tr><th colspan="3" scope="row">Total</th><td><strong>R' + total.toFixed(2) + '</strong></td></tr>';
+                     
+        $('.cart-table tfoot').html(tfootHtml);
+        
+        /* Update messages below input */
+        if (code && discountMessage === 'Invalid Code') {
+            $('#discount-message').text('Invalid discount code.').css('color', 'red');
+        } else if (code) {
+            $('#discount-message').text(discountMessage + ' applied successfully!').css('color', 'var(--deep-rose)');
+            $('#discount-code-input').val(code);
+        } else {
+            $('#discount-message').text('');
+        }
     }
 
     /* Initial Render */
@@ -183,6 +223,38 @@ $(document).ready(function () {
         var index = $(this).data('index');
         cart.splice(index, 1);
         saveCart();
+        renderCart();
+    });
+
+    /* 8. Discount Code Logic */
+    $('#apply-discount-btn').on('click', function() {
+        var code = $('#discount-code-input').val().trim().toUpperCase();
+        if (!code) {
+            localStorage.removeItem('blossomDiscount');
+            renderCart();
+            return;
+        }
+        
+        localStorage.setItem('blossomDiscount', code);
+        
+        if (code === 'BDAY') {
+            /* Automatically add Handwritten Card */
+            var hasCard = cart.some(function(item) {
+                return item.name === 'Handwritten Card';
+            });
+            if (!hasCard) {
+                cart.push({
+                    name: 'Handwritten Card',
+                    price: 35,
+                    qty: 1,
+                    message: 'Happy Birthday!',
+                    image: 'images/addon-card.png'
+                });
+                saveCart();
+                showToast('Handwritten Card automatically added for BDAY!');
+            }
+        }
+        
         renderCart();
     });
 
