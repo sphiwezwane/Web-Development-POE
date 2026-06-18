@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     /* 2. Toast Notification setup */
     if ($('body').length) {
-        var toastHtml = '<div id="cart-toast" style="display:none; position:fixed; top:20px; right:20px; background:#4CAF50; color:white; padding:15px 20px; border-radius:5px; z-index:10000; box-shadow:0 4px 6px rgba(0,0,0,0.1); font-family:\'Poppins\', sans-serif;"></div>';
+        var toastHtml = '<div id="cart-toast" style="display:none; position:fixed; top:20px; right:20px; background:var(--deep-rose); color:white; padding:15px 20px; border-radius:5px; z-index:10000; box-shadow:0 4px 6px rgba(0,0,0,0.1); font-family:\'Poppins\', sans-serif;"></div>';
         $('body').append(toastHtml);
     }
 
